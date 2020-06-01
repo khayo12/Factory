@@ -15,7 +15,7 @@ namespace FactoryFloor
 
             try
             {
-                var moves = moveSeq.Split(',');
+                string[] moves = DetermineMoves(moveSeq);
 
                 foreach (var move in moves)
                 {
@@ -61,6 +61,11 @@ namespace FactoryFloor
             }
 
             return string.Empty;
+        }
+
+        private static string[] DetermineMoves(string moveSeq)
+        {
+            return moveSeq.Split(',');
         }
     }
 }
