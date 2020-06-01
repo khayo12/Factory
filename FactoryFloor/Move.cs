@@ -46,10 +46,7 @@ namespace FactoryFloor
                                 return $"Invalid: {direction} direction.";
                         }
                         visited = (countE - countW) + ", " + (countN - countS);
-                        if (!visitedBlocks.Contains(visited))
-                        {
-                            visitedBlocks.Add(visited);
-                        }
+                        RightMove(visited, visitedBlocks);
                         previousDirection = direction;
                     }
                 }
@@ -61,6 +58,14 @@ namespace FactoryFloor
             }
 
             return string.Empty;
+        }
+
+        private static void RightMove(string visited, List<string> visitedBlocks)
+        {
+            if (!visitedBlocks.Contains(visited))
+            {
+                visitedBlocks.Add(visited);
+            }
         }
 
         private static string[] DetermineMoves(string moveSeq)
