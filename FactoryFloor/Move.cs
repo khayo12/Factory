@@ -3,8 +3,13 @@ using System.Collections.Generic;
 
 namespace FactoryFloor
 {
-    public class Move
+    public class Move : IMove
     {
+        public string[] DetermineMoves(string moveSeq)
+        {
+            return moveSeq.Split(',');
+        }
+
         public string MoveBlocks(string moveSeq)
         {
             int countN = 0, countS = 0;
@@ -60,17 +65,12 @@ namespace FactoryFloor
             return string.Empty;
         }
 
-        private static void RightMove(string visited, List<string> visitedBlocks)
+        public void RightMove(string visited, List<string> visitedBlocks)
         {
             if (!visitedBlocks.Contains(visited))
             {
                 visitedBlocks.Add(visited);
             }
-        }
-
-        private static string[] DetermineMoves(string moveSeq)
-        {
-            return moveSeq.Split(',');
         }
     }
 }
